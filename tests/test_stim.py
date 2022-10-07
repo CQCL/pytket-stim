@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import pytest
+
 from pytket.circuit import Bit, Circuit, OpType, Qubit  # type: ignore
 from pytket.extensions.stim import StimBackend
-import pytest
 
 
 def test_bell_circuit() -> None:

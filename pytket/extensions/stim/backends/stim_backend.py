@@ -14,6 +14,10 @@
 
 from typing import cast, List, Optional, Sequence, Union
 from uuid import uuid4
+
+import numpy as np
+import stim  # type: ignore
+
 from pytket.architecture import Architecture  # type: ignore
 from pytket.backends import (
     Backend,
@@ -43,8 +47,6 @@ from pytket.predicates import (  # type: ignore
 )
 from pytket.utils.outcomearray import OutcomeArray
 from pytket.utils.results import KwargTypes
-import numpy as np
-import stim  # type: ignore
 
 _gate = {
     OpType.noop: "I",
