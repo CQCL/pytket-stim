@@ -1,6 +1,13 @@
 Changelog
 ~~~~~~~~~
 
+Unreleased
+----------
+
+* Update pytket version requirement to 1.16.
+* Update stim version requirement to 1.11.
+* Drop support for Python 3.8; add support for 3.11.
+
 0.15.0 (November 2022)
 ----------------------
 
