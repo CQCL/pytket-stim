@@ -1,8 +1,8 @@
 Changelog
 ~~~~~~~~~
 
-Unreleased
-----------
+0.16.0 (June 2023)
+------------------
 
 * Update pytket version requirement to 1.16.
 * Update stim version requirement to 1.11.
