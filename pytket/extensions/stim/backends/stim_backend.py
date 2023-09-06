@@ -42,6 +42,7 @@ from pytket.predicates import (  # type: ignore
     NoClassicalControlPredicate,
     Predicate,
 )
+from pytket.unit_id import Qubit
 from pytket.utils.outcomearray import OutcomeArray
 from pytket.utils.results import KwargTypes
 
@@ -98,10 +99,11 @@ def _process_one_circuit(circ: Circuit, n_shots: int) -> BackendResult:
         args = cmd.args
         if optype == OpType.Measure:
             qb, cb = args
+            assert isinstance(qb, Qubit)
             c.append_operation("M", [qubits.index(qb)])
             readout_bits.append(cb)
         else:
-            qbs = [qubits.index(arg) for arg in args]
+            qbs = [qubits.index(cast(Qubit, arg)) for arg in args]
             c.append_operation(_gate[optype], qbs)
         if len(set(readout_bits)) != len(readout_bits):
             raise ValueError("Measurement overwritten")
@@ -133,7 +135,7 @@ class StimBackend(Backend):
         ]
 
     def rebase_pass(self) -> BasePass:
-        return RebaseCustom({OpType.CX, OpType.H, OpType.S}, Circuit(), _tk1_to_cliff)
+        return RebaseCustom({OpType.CX, OpType.H, OpType.S}, Circuit(), _tk1_to_cliff)  # type: ignore
 
     def default_compilation_pass(self, optimisation_level: int = 1) -> BasePass:
         # No optimization.
