@@ -27,8 +27,8 @@ from pytket.backends import (
 )
 from pytket.backends.backendresult import BackendResult
 from pytket.backends.resulthandle import _ResultIdTuple
-from pytket.circuit import Circuit, OpType  # type: ignore
-from pytket.passes import (  # type: ignore
+from pytket.circuit import Circuit, OpType
+from pytket.passes import (
     BasePass,
     DecomposeBoxes,
     FlattenRegisters,
@@ -36,7 +36,7 @@ from pytket.passes import (  # type: ignore
     RemoveRedundancies,
     SequencePass,
 )
-from pytket.predicates import (  # type: ignore
+from pytket.predicates import (
     DefaultRegisterPredicate,
     GateSetPredicate,
     NoClassicalControlPredicate,
@@ -68,7 +68,7 @@ _gate = {
 def _int_double(x: float) -> int:
     # return (2x) mod 8 if x is close to a half-integer, otherwise error
     y = 2 * x
-    n = int(np.round(y))  # type: ignore
+    n = int(np.round(y))
     if np.isclose(y, n):
         return n % 8
     else:

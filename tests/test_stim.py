@@ -14,7 +14,7 @@
 
 import pytest
 
-from pytket.circuit import Bit, Circuit, OpType, Qubit  # type: ignore
+from pytket.circuit import Bit, Circuit, OpType, Qubit
 from pytket.extensions.stim import StimBackend
 
 

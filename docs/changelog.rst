@@ -1,6 +1,12 @@
 Changelog
 ~~~~~~~~~
 
+0.17.0 (September 2023)
+-----------------------
+
+* Update pytket version requirement to 1.16.
+* Update stim version requirement to 1.12.
+
 0.16.0 (June 2023)
 ------------------
 
