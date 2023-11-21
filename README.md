@@ -1,7 +1,7 @@
 # pytket-stim
 
 [Pytket](https://cqcl.github.io/tket/pytket/api/index.html) is a python module for interfacing
-with tket, a quantum computing toolkit and optimisation compiler developed by Quantinuum.
+with tket, a quantum computing toolkit and optimising compiler developed by Quantinuum.
 
 [Stim](https://github.com/quantumlib/Stim) is a fast Clifford circuit simulator.
 
