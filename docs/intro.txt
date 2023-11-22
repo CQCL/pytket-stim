@@ -10,9 +10,9 @@ to be simulated using ``stim``.
 ``pytket-stim`` is available for Python 3.9, 3.10 and 3.11, on Linux, MacOS and
 Windows. To install, run:
 
-```shell
-pip install pytket-stim
-```
+::
+   
+   pip install pytket-stim
 
 .. toctree::
     api.rst
