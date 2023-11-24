@@ -1,12 +1,7 @@
-# Pytket Extensions
-
-This repository contains the pytket-stim extension, using Quantinuum's
-[pytket](https://cqcl.github.io/tket/pytket/api/index.html) quantum SDK.
-
 # pytket-stim
 
-[Pytket](https://cqcl.github.io/tket/pytket/api/index.html) is a python module for interfacing
-with tket, a quantum computing toolkit and optimisation compiler developed by Quantinuum.
+[Pytket](https://tket.quantinuum.com/api-docs/index.html) is a python module for interfacing
+with tket, a quantum computing toolkit and optimising compiler developed by Quantinuum.
 
 [Stim](https://github.com/quantumlib/Stim) is a fast Clifford circuit simulator.
 
@@ -18,7 +13,9 @@ simulated using Stim.
 `pytket-stim` is available for Python 3.9, 3.10 and 3.11, on Linux, MacOS
 and Windows. To install, run:
 
-```pip install pytket-stim```
+```shell
+pip install pytket-stim
+```
 
 This will install `pytket` if it isn't already installed, and add new classes
 and methods into the `pytket.extensions` namespace.
