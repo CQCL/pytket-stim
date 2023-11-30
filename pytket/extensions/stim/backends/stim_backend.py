@@ -25,6 +25,7 @@ from pytket.backends import (
     ResultHandle,
     StatusEnum,
 )
+from pytket.backends.backendinfo import BackendInfo
 from pytket.backends.backendresult import BackendResult
 from pytket.backends.resulthandle import _ResultIdTuple
 from pytket.circuit import Circuit, OpType
@@ -45,6 +46,7 @@ from pytket.predicates import (
 from pytket.unit_id import Qubit
 from pytket.utils.outcomearray import OutcomeArray
 from pytket.utils.results import KwargTypes
+from pytket.extensions.stim._metadata import __extension_version__
 
 _gate = {
     OpType.noop: "I",
@@ -63,6 +65,14 @@ _gate = {
     OpType.Measure: "M",
     OpType.Reset: "R",
 }
+_backend_info = BackendInfo(
+    "StimBackend",
+    None,
+    __extension_version__,
+    None,
+    None,
+    _gate,
+)
 
 
 def _int_double(x: float) -> int:
@@ -147,6 +157,10 @@ class StimBackend(Backend):
                 RemoveRedundancies(),
             ]
         )
+
+    @property
+    def backend_info(self) -> Optional[BackendInfo]:
+        return _backend_info
 
     @property
     def _result_id_type(self) -> _ResultIdTuple:

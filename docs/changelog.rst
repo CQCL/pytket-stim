@@ -1,6 +1,11 @@
 Changelog
 ~~~~~~~~~
 
+Unreleased
+--------------------
+
+* Implement ``backend_info`` property.
+
 0.19.0 (November 2023)
 ----------------------
 
