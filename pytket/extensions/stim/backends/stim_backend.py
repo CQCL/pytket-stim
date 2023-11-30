@@ -70,7 +70,7 @@ _backend_info = BackendInfo(
     None,
     __extension_version__,
     None,
-    _gate,
+    set(_gate.keys()),
 )
 
 
