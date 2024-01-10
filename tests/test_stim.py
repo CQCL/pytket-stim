@@ -108,3 +108,9 @@ def test_mid_circuit_measurement() -> None:
     r = b.get_result(h)
     shots = r.get_shots()
     assert all(shot[0] == 1 for shot in shots)
+
+
+def test_backend_info() -> None:
+    b = StimBackend()
+    assert b.backend_info is not None
+    assert b.backend_info.name == "StimBackend"
