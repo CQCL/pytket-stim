@@ -144,7 +144,7 @@ class StimBackend(Backend):
         ]
 
     def rebase_pass(self) -> BasePass:
-        return RebaseCustom({OpType.CX, OpType.H, OpType.S}, Circuit(), _tk1_to_cliff)  # type: ignore
+        return RebaseCustom({OpType.CX, OpType.H, OpType.S}, Circuit(), _tk1_to_cliff)
 
     def default_compilation_pass(self, optimisation_level: int = 1) -> BasePass:
         # No optimization.
