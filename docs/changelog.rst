@@ -1,6 +1,12 @@
 Changelog
 ~~~~~~~~~
 
+Unreleased
+----------
+
+* Update pytket minimum version requirement to 1.32.0.
+* Update stim minimum version requirement to 1.14.0.
+
 0.24.0 (July 2024)
 ------------------
 
