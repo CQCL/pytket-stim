@@ -12,12 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import cast, List, Optional, Sequence, Union
+from collections.abc import Sequence
+from typing import List, Optional, Union, cast
 from uuid import uuid4
 
 import numpy as np
-import stim  # type: ignore
 
+import stim  # type: ignore
 from pytket.backends import (
     Backend,
     CircuitNotRunError,
@@ -29,6 +30,7 @@ from pytket.backends.backendinfo import BackendInfo
 from pytket.backends.backendresult import BackendResult
 from pytket.backends.resulthandle import _ResultIdTuple
 from pytket.circuit import Circuit, OpType
+from pytket.extensions.stim._metadata import __extension_version__
 from pytket.passes import (
     BasePass,
     DecomposeBoxes,
@@ -46,7 +48,6 @@ from pytket.predicates import (
 from pytket.unit_id import Qubit
 from pytket.utils.outcomearray import OutcomeArray
 from pytket.utils.results import KwargTypes
-from pytket.extensions.stim._metadata import __extension_version__
 
 _gate = {
     OpType.noop: "I",
