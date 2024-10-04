@@ -1,5 +1,12 @@
+.. currentmodule:: pytket.extensions.stim
+
 Changelog
 ~~~~~~~~~
+
+0.25.0 (October 2024)
+---------------------
+
+* Updated pytket version requirement to 1.33.
 
 0.24.0 (July 2024)
 ------------------
