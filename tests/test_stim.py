@@ -82,7 +82,7 @@ def test_counts() -> None:
     h = b.process_circuit(c, n_shots=10)
     r = b.get_result(h)
     counts = r.get_counts()
-    assert set(counts.keys()) <= set([(0, 0, 0), (1, 1, 1)])
+    assert set(counts.keys()) <= set([(0, 0, 0), (1, 1, 1)])  # noqa: C405
     assert sum(counts.values()) == 10
 
 

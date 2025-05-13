@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from collections.abc import Sequence
-from typing import Optional, Union, cast
+from typing import cast
 from uuid import uuid4
 
 import numpy as np
@@ -81,8 +81,7 @@ def _int_double(x: float) -> int:
     n = int(np.round(y))
     if np.isclose(y, n):
         return n % 8
-    else:
-        raise ValueError("Non-Clifford angle encountered")
+    raise ValueError("Non-Clifford angle encountered")
 
 
 def _tk1_to_cliff(a: float, b: float, c: float) -> Circuit:
@@ -113,7 +112,7 @@ def _process_one_circuit(circ: Circuit, n_shots: int) -> BackendResult:
             c.append_operation("M", [qubits.index(qb)])
             readout_bits.append(cb)
         else:
-            qbs = [qubits.index(cast(Qubit, arg)) for arg in args]
+            qbs = [qubits.index(cast("Qubit", arg)) for arg in args]
             c.append_operation(_gate[optype], qbs)
         if len(set(readout_bits)) != len(readout_bits):
             raise ValueError("Measurement overwritten")
@@ -159,7 +158,7 @@ class StimBackend(Backend):
         )
 
     @property
-    def backend_info(self) -> Optional[BackendInfo]:
+    def backend_info(self) -> BackendInfo | None:
         return _backend_info
 
     @property
@@ -169,25 +168,25 @@ class StimBackend(Backend):
     def process_circuits(
         self,
         circuits: Sequence[Circuit],
-        n_shots: Optional[Union[int, Sequence[int]]] = None,
+        n_shots: int | Sequence[int] | None = None,
         valid_check: bool = True,
         **kwargs: KwargTypes,
     ) -> list[ResultHandle]:
         circuits = list(circuits)
         n_shots_list: list[int] = []
         if hasattr(n_shots, "__iter__"):
-            n_shots_list = cast(list[int], n_shots)
+            n_shots_list = cast("list[int]", n_shots)
             if len(n_shots_list) != len(circuits):
                 raise ValueError("The length of n_shots and circuits must match")
         else:
             # convert n_shots to a list
-            n_shots_list = [cast(int, n_shots)] * len(circuits)
+            n_shots_list = [cast("int", n_shots)] * len(circuits)
 
         if valid_check:
             self._check_all_circuits(circuits)
 
         handle_list = []
-        for circuit, n_shots_circ in zip(circuits, n_shots_list):
+        for circuit, n_shots_circ in zip(circuits, n_shots_list, strict=False):
             handle = ResultHandle(str(uuid4()))
             self._cache[handle] = {
                 "result": _process_one_circuit(circuit, n_shots_circ)
