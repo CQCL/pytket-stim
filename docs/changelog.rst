@@ -74,7 +74,7 @@ Changelog
 * Fix issue with empty architecture
 
 0.14.0 (October 2022)
---------------------
+---------------------
 
 * Updated pytket version requirement to 1.7.
 
