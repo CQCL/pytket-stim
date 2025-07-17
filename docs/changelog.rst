@@ -38,7 +38,7 @@ Changelog
 ---------------------
 
 * Updated pytket version requirement to 1.23.
-* Implement ``backend_info`` property.
+* Implement :py:attr:`~pytket.backends.backend.Backend.backend_info` property.
 
 0.19.0 (November 2023)
 ----------------------
