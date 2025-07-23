@@ -12,6 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Backend for utilising the Stim Clifford simulator directly from pytket"""
-
 from .stim_backend import StimBackend
